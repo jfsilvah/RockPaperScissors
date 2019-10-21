@@ -163,7 +163,7 @@ database.ref("/player2").on("value", function(snapshot) {
                 else if (player2.movement === 3){
                     $("#sel_p2").attr("src","assets/images/tijeras.jpg");
                 }
-                setTimeout(reset,2000);
+                setTimeout(reset,3000);
                 database.ref("/player1").set({
                     name: player1.name,
                     wins: player1.wins,
@@ -262,7 +262,7 @@ $("#buttons_p2").on("click","button",function(event){
     $("#looses_p1").text("Looses: "+player1.looses);
     $("#wins_p2").text("Wins: "+player2.wins);
     $("#looses_p2").text("Looses: "+player2.looses);
-    setTimeout(reset,2000);
+    setTimeout(reset,3000);
     database.ref("/player1").set({
         name: player1.name,
         wins: player1.wins,

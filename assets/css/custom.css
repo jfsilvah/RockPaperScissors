@@ -1,5 +1,6 @@
 body{
     background-color: rgb(231,224,255);
+    font-family: 'Play', sans-serif;
 }
 
 .header_img{
@@ -17,48 +18,17 @@ body{
     font-size: 2.5vw;
 }
 
+.titlePlayers{
+    text-align: center;
+}
+
 .title_noPadding{
     padding-left: 0%;
     padding-right: 0%;
 }
 
-.header_msg{
-    text-align: center;
+#wins_p1, #wins_p2,#looses_p1,#looses_p2{
     font-family: 'Play', sans-serif;
-    font-size: 2.5vw;
-    color: rgb(252,223,69);
+    font-size: 2vw;
 }
-
-.damage_msg{
-    text-align: center;
-    font-family: 'Play', sans-serif;
-    font-size: 1.5vw;
-    color: rgb(252,223,69);
-}
-
-.image_content {
-    height: 7vw;
-    width: 7vw;
-    border: 0vw solid;
-    margin: 0 1% 0 3%;
-    border-top-color: #ffee00;
-    border-right-color: #ffee00;
-    border-bottom-color: #8d9246;
-    border-left-color: #8d9246;
-}
-
-.row{
-    margin-right: 0px;
-}
-
-.figtherImage{
-    height: 20vw;
-    width: 15vw;
-}
-
-.vsImage{
-    height: 10vw;
-    width: 10vw;
-}
-
 

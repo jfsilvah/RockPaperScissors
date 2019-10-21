@@ -18,6 +18,46 @@
             <div class="col-lg-4 col-md-4 col-sm-4 header_img"></div>
         </div>
     </section>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 align-items-center">
+                <div id="player1">
+                    <h2 class ="titlePlayers"><span id="player1_name" class="badge badge-secondary yourturn">Player 1</span></h2>
+                    <div class="card">
+                        <img id="sel_p1" class="card-img-top" src="assets/images/animation.gif" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><span id="wins_p1"></span>&nbsp;&nbsp;&nbsp;<span id="looses_p1"></span></h4>
+                            <div id="buttons_p1" class="d-flex justify-content-around">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 align-items-center">
+                <br><br><br><br><br><br><br>
+                <div id="nameForm" class="input-group mb-3">
+                    <input id="playerName" type="text" class="form-control" placeholder="Insert your name here" aria-label="Insert your name here" aria-describedby="btn-pname">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="btn-pname">Start</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 align-items-center">
+                <div id="player2">
+                    <h2 class="titlePlayers"><span id="player2_name" class="badge badge-secondary yourturn">Player 2</span></h2>
+                    <div class="card">
+                        <img id="sel_p2" class="card-img-top" src="assets/images/animation.gif" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><span id="wins_p2"></span>&nbsp;&nbsp;&nbsp;<span id="looses_p2"></span></h4>
+                            <div id="buttons_p2" class="d-flex justify-content-around">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/99d86a1013.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>

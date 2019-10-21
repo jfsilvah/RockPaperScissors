@@ -9,6 +9,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+var messages = [];
 var database = firebase.database();
 var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
@@ -67,7 +68,6 @@ connectionsRef.on("value", function(snapshot) {
     if (snapshot.numChildren() === 1 && player1_active === false){
         player1_active = true;
         player2_active = false;
-        database.ref("/player2").set({looses: 0});
         $("#player2_name").text("Waiting for Player2");
         player1.name = player2.name;
         player1.wins = 0;
@@ -99,6 +99,17 @@ connectionsRef.on("value", function(snapshot) {
         player2_active = true;
         player1_active = false;
     }
+});
+
+database.ref("/chats").on("value", function(snapshot) {
+    messages = JSON.parse(snapshot.val().history);
+    $("#lastMessages").val("");
+    for(var i=0;i<messages.length;i++){
+        console.log(messages[i]);
+        $("#lastMessages").val($("#lastMessages").val()+messages[i]+"\n");
+    }
+  }, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
 });
 
 database.ref("/player1").on("value", function(snapshot) {
@@ -283,7 +294,12 @@ $("#btn-pname").on("click",function(event){
     event.preventDefault();
     $("#player1").show();
     $("#player2").show();
+    $("#chat").show();
     $("#nameForm").hide();
+    messages.unshift(moment().format('DD/MM/YYYY hh:mm:ss')+" "+$("#playerName").val()+" se ha conectado");
+    database.ref("/chats").set({
+        history: JSON.stringify(messages)
+    });
     if (player1_active || player2_active){
         if (player1_active){
             $("#buttons_p2").text(" ");
@@ -323,8 +339,20 @@ $("#btn-pname").on("click",function(event){
     }
 });
 
+$("#send").on("click",function(event){
+    event.preventDefault();
+    if($("#sendMessage").val().trim().length > 0){
+       messages.unshift(moment().format('DD/MM/YYYY hh:mm:ss')+" "+$("#playerName").val()+": "+$("#sendMessage").val().trim());
+       database.ref("/chats").set({
+           history: JSON.stringify(messages)
+       });
+    }
+    $("#sendMessage").val("");
+});
+
 window.onload = function () {
     $("#nameForm").show();
+    $("#chat").hide();
     $("#player1").hide();
     $("#player2").hide();
 };

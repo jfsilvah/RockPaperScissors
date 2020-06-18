@@ -8,6 +8,8 @@
 * Throw some chat functionality in there could have any player communication
 * Using firebase the game is sending details to the other page, and this is refreshed after any update on the database
 
+![Screenshot](assets/images/screenshot.JPG)  
+
 ## Technologies used to develop the app
 - HTML5
 - CSS3
